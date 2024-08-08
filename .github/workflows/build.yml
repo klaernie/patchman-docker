@@ -61,7 +61,7 @@ jobs:
       id: build
       with:
         # Push image without tags (i.e. digest only)
-        outputs: type=image,name=${{ env.REGISTRY }}/${{ github.repository_owner }}/${{ env.IMAGE_NAME }},push-by-digest=true,name-canonical=true,push=true
+        outputs: type=image,name=${{ env.REGISTRY }}/${{ github.repository_owner }}/${{ env.IMAGE_NAME }},push-by-digest=true,name-canonical=true,push=${{ github.event_name != 'pull_request' }}
         # Specifying tags here causes 'can't push tagged ref ghcr.io/tigattack/patchman:<tag> by digest'
         # tags: ${{ steps.meta.outputs.tags }}
         labels: ${{ steps.meta.outputs.labels }}
