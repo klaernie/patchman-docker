@@ -71,6 +71,10 @@ jobs:
         provenance: false
         load: true
 
+    - name: Load image into runner docker daemon
+      run: |
+        docker load --input /tmp/myimage.tar
+
     - name: list images in docker
       run: |
         set -x
