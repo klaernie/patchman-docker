@@ -73,7 +73,7 @@ jobs:
 
     - name: Load image into runner docker daemon
       run: |
-        docker load --input /tmp/myimage.tar
+        docker load --input /tmp/${{ env.IMAGE_NAME }}.tar
 
     - name: list images in docker
       run: |
