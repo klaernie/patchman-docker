@@ -74,8 +74,9 @@ jobs:
         provenance: false
         push: ${{ github.event_name != 'pull_request' }}
 
-    - name: debug
+    - name: list images in docker
       run: |
+        set -x
         docker images --no-trunc
 
     - name: Test run Docker Compose
