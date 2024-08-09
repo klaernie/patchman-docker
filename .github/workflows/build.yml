@@ -87,14 +87,14 @@ jobs:
         compose-file: .github/test/docker-compose.yml
         down-flags: "--volumes"
       env:
-        IMAGE: "${{ steps.build.outputs.digest }}"
+        IMAGE: "${{ steps.build.outputs.imageid }}"
         IMAGE_PLATFORM: ${{ matrix.platform }}
         PWD: ${{ github.workspace }}/.github/test
 
     - name: Print Docker Compose logs
       if: always() && (steps.test.outcome == 'failure')
       env:
-        IMAGE: "${{ steps.build.outputs.digest }}"
+        IMAGE: "${{ steps.build.outputs.imageid }}"
         IMAGE_PLATFORM: ${{ matrix.platform }}
       run: |
         cd .github/test
