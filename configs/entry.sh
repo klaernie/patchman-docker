@@ -26,6 +26,10 @@ elif [ "$1" = "server" ]; then
   # Run gunicorn for patchman
   gunicorn --bind 0.0.0.0:80 --workers "$GUNICORN_WORKERS" patchman.wsgi:application
 
+elif [ "$1" = "maintenance" ]; then
+
+  /usr/local/bin/patchman --all
+
 else
   echo "Unknown command: $1"
   exit 1
