@@ -49,6 +49,10 @@ RUN \
     --no-warn-script-location \
     -r "${APPDIR}/requirements-extra.txt" \
     -r "${APPDIR}/requirements.txt" &&\
+  # install python-apt, avoiding build_ext which fails under alpine by default
+  git clone --branch 2.8.0 --depth=1 https://salsa.debian.org/apt-team/python-apt.git /tmp/python-apt-git &&\
+  /tmp/python-apt-git/setup.py install &&\
+  /tmp/python-apt-git/setup.py build &&\
   # Install Patchman
   ${APPDIR}/setup.py install &&\
   # Remove build deps
