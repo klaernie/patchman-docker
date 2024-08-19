@@ -10,6 +10,9 @@ ENV CELERY_REDIS_PORT="6379"
 ENV CELERY_LOG_LEVEL="INFO"
 ENV GUNICORN_WORKERS="2"
 
+# for python-apt
+ENV DEBVER="2.8.0"
+
 LABEL org.opencontainers.image.authors="tigattack"
 LABEL org.opencontainers.image.title="Patchman"
 LABEL org.opencontainers.image.description="Alpine-based Patchman container image."
