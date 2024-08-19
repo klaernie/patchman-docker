@@ -55,7 +55,7 @@ RUN \
     cd /tmp/python-apt-git &&\
     python /tmp/python-apt-git/setup.py install &&\
     python /tmp/python-apt-git/setup.py build &&\
-  } &&\
+  ) &&\
   # Install Patchman
   ${APPDIR}/setup.py install &&\
   # Remove build deps
