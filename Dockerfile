@@ -39,7 +39,7 @@ RUN \
   git clone https://github.com/furlongm/patchman.git . && \
   git checkout tags/$PATCHMAN_VERSION -b execbranch &&\
   # Build deps
-  apk add --no-cache --virtual .build-deps build-base &&\
+  apk add --no-cache --virtual .build-deps build-base apt-dev &&\
   # Hacky temporary workaround to cython=3 & pyyaml=6 build failure
   # https://github.com/yaml/pyyaml/issues/724
   echo "cython<3" > /tmp/constraint.txt &&\
