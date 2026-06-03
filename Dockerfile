@@ -1,4 +1,4 @@
-FROM python:3.12-alpine
+FROM python:3.13-alpine
 
 # Git tag such as "v1.2.3"
 # renovate: datasource=github-tags depName=furlongm/patchman
